@@ -6,13 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Empleado {
+public class Administrador {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String nombre;
-    private String rol;
     private String contacto;
+    private String rolAdministrador;
 
     public long getId() {
         return id;
@@ -30,19 +31,19 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
     public String getContacto() {
         return contacto;
     }
 
     public void setContacto(String contacto) {
         this.contacto = contacto;
+    }
+
+    public String getRolAdministrador() {
+        return rolAdministrador;
+    }
+
+    public void setRolAdministrador(String rolAdministrador) {
+        this.rolAdministrador = rolAdministrador;
     }
 }
