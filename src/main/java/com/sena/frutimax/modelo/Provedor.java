@@ -8,12 +8,15 @@ public class Provedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
-    private String Id;
+    private Long id;
     private String nombre;
     private String contacto;
     private String producto;
     double total;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;

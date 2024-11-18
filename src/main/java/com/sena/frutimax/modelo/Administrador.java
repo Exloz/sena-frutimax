@@ -10,10 +10,14 @@ public class Administrador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
     private String nombre;
     private String contacto;
     private String rolAdministrador;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;
