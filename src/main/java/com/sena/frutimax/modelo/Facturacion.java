@@ -4,9 +4,12 @@ package com.sena.frutimax.modelo;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.persis
+import jakarta.persistence.Id;
+import java.util.Date;
 
 @Entity
+
+
 public class Facturacion {
 
     @Id
