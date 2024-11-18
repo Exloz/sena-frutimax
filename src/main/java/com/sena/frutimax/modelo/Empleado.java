@@ -9,10 +9,14 @@ import jakarta.persistence.Id;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private long id;
+    private Long id;
     private String nombre;
     private String rol;
     private String contacto;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public long getId() {
         return id;
