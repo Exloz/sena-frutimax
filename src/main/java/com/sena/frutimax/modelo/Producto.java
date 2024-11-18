@@ -16,6 +16,7 @@ public class Producto {
     private String descripcion;
     private String categoria;
 
+
     public Long getId() {
         return id;
     }
