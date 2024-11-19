@@ -1,10 +1,7 @@
 package com.sena.frutimax.modelo;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Inventario {
@@ -13,6 +10,10 @@ public class Inventario {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long productoID;
     private Double cantidadDisponible;
+
+
+
+
 
 
     public java.lang.Double getCantidadDisponible() {

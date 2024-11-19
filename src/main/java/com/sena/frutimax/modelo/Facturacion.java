@@ -1,10 +1,8 @@
 package com.sena.frutimax.modelo;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Entity
@@ -19,6 +17,18 @@ public class Facturacion {
     private Double total;
     private Date fecha;
     private String historialDePedidos;
+
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
+    private Facturacion facturacion;
+
+    public Facturacion getFacturacion() {
+        return facturacion;
+    }
+
+    public void setFacturacion(Facturacion facturacion) {
+        this.facturacion = facturacion;
+    }
 
     public java.lang.Long getFacturaID() {
         return facturaID;
