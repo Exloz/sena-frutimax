@@ -14,9 +14,21 @@ public class Pedido {
     private String estado;
     private Double total;
     private Date fecha;
+
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<Facturacion> facturaciones;
+
+    public List<Facturacion> getFacturaciones() {
+        return facturaciones;
+    }
+
+    public void setFacturaciones(List<Facturacion> facturaciones) {
+        this.facturaciones = facturaciones;
+    }
 
     public Cliente getCliente() {
         return cliente;
