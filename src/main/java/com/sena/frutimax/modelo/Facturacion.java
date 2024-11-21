@@ -20,15 +20,16 @@ public class Facturacion {
 
     @ManyToOne
     @JoinColumn(name = "pedido_id")
-    private Facturacion facturacion;
+    private Facturacion facturaciones;
 
-    public Facturacion getFacturacion() {
-        return facturacion;
+    public Facturacion getFacturaciones() {
+        return facturaciones;
     }
 
-    public void setFacturacion(Facturacion facturacion) {
-        this.facturacion = facturacion;
+    public void setFacturaciones(Facturacion facturaciones) {
+        this.facturaciones = facturaciones;
     }
+
 
     public java.lang.Long getFacturaID() {
         return facturaID;
