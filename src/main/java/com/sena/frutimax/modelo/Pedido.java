@@ -77,6 +77,37 @@ public class Pedido {
         this.id = id;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private List<Facturacion> facturaciones;
+
+    public List<Facturacion> getFacturaciones() {
+        return facturaciones;
+    }
+
+    public void setFacturaciones(List<Facturacion> facturaciones) {
+        this.facturaciones = facturaciones;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getEstado() {
         return estado;
     }

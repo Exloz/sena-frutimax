@@ -1,9 +1,8 @@
 package com.sena.frutimax.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Producto {
@@ -15,7 +14,6 @@ public class Producto {
     private Double precio;
     private String descripcion;
     private String categoria;
-
 
     public Long getId() {
         return id;
@@ -56,4 +54,41 @@ public class Producto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    /*--------------------------*/
+
+
+    @ManyToOne
+    @JoinColumn(name = "inventario_ID")
+    private Cliente inventario;
+
+    public Cliente getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Cliente inventario) {
+        this.inventario = inventario;
+    }
+
+    /*--------------------------*/
+
+
+
+    @OneToMany(mappedBy = "producto" , cascade = CascadeType.ALL)
+    private List<Provedor> provedor;
+
+    public List<Provedor> getProveedor() {
+        return provedor;
+    }
+
+    public void setProveedor(List<Provedor> proveedor) {
+        this.provedor = proveedor;
+    }
+
 }
+    /*--------------------------*/
+
+
+
+
+
