@@ -1,7 +1,6 @@
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.sena.frutimax.modelo.Pedido;
+import com.sena.frutimax.modelo.Producto;
+import jakarta.persistence.*;
 
 @Entity
 public class Provedor {
@@ -61,4 +60,20 @@ public class Provedor {
     public void setId(long id) {
         this.id = id;
     }
+
+    @ManyToOne
+    @JoinColumn
+    private Producto producto;
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+    public Producto getProducto() {
+        return producto;
+    }
+
+
+
+
+
 }

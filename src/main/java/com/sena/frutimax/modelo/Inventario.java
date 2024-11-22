@@ -14,17 +14,6 @@ public class Inventario {
     private Double cantidadDisponible;
 
 
-    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
-    private List<Cajero> cajeros;
-
-    public List<Cajero> getCajeros() {
-        return cajeros;
-    }
-
-    public void setCajeros(List<Cajero> cajeros) {
-        this.cajeros = cajeros;
-    }
-
     public java.lang.Double getCantidadDisponible() {
         return cantidadDisponible;
     }
@@ -39,6 +28,19 @@ public class Inventario {
 
     public void setProductoID(java.lang.Long productoID) {
         this.productoID = productoID;
+    }
+
+
+
+    /*-----------------------------------------------*/
+    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
+    private List<Producto> productos;
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 
 
