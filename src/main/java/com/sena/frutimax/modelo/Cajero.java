@@ -1,9 +1,6 @@
 package com.sena.frutimax.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Cajero {
@@ -14,6 +11,18 @@ public class Cajero {
     private String nombre;
     private String contacto;
     private String rolCajero;
+
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
+    private Cajero cajeros;
+
+    public Cajero getCajeros() {
+        return cajeros;
+    }
+
+    public void setCajeros(Cajero cajeros) {
+        this.cajeros = cajeros;
+    }
 
     public void setId(Long id) {
         this.id = id;
