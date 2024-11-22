@@ -75,14 +75,14 @@ public class Producto {
 
 
     @OneToMany(mappedBy = "producto" , cascade = CascadeType.ALL)
-    private List<Proveedor> proveedor;
+    private List<Provedor> provedor;
 
-    public List<Proveedor> getProveedor() {
-        return proveedor;
+    public List<Provedor> getProveedor() {
+        return provedor;
     }
 
-    public void setProveedor(List<Proveedor> proveedor) {
-        this.proveedor = proveedor;
+    public void setProveedor(List<Provedor> proveedor) {
+        this.provedor = proveedor;
     }
 
 }
