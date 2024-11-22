@@ -1,17 +1,26 @@
-import com.sena.frutimax.modelo.Pedido;
-import com.sena.frutimax.modelo.Producto;
+package com.sena.frutimax.modelo;
+
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-public class Provedor {
+public class Proveedor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nombre;
     private String contacto;
-    private String producto;
-    double total;
+    private Double total;
+
+    @ManyToMany
+    private List<Producto> producto;
+
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -19,10 +28,6 @@ public class Provedor {
 
     public long getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        Id = id;
     }
 
     public String getNombre() {
@@ -41,14 +46,6 @@ public class Provedor {
         this.contacto = contacto;
     }
 
-    public String getProducto() {
-        return producto;
-    }
-
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
     public double getTotal() {
         return total;
     }
@@ -60,20 +57,4 @@ public class Provedor {
     public void setId(long id) {
         this.id = id;
     }
-
-    @ManyToOne
-    @JoinColumn
-    private Producto producto;
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
-    }
-    public Producto getProducto() {
-        return producto;
-    }
-
-
-
-
-
 }

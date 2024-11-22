@@ -14,6 +14,50 @@ public class Producto {
     private Double precio;
     private String descripcion;
     private String categoria;
+    @ManyToOne
+    @JoinColumn(name = "inventario_id")
+    private Inventario inventario;
+
+    @ManyToMany(mappedBy = "producto")
+    private List<Pedido> pedido;
+
+    @ManyToMany(mappedBy = "producto")
+    @JoinTable(name = "producto_proveedor",
+            joinColumns = @JoinColumn(name = "producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "proveedor_id"))
+    private List<Proveedor> proveedor;
+
+    public List<Proveedor> getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(List<Proveedor> proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public List<Proveedor> getProvedor() {
+        return proveedor;
+    }
+
+    public void setProvedor(List<Proveedor> proveedor) {
+        this.proveedor = proveedor;
+    }
+
+    public List<Pedido> getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(List<Pedido> pedido) {
+        this.pedido = pedido;
+    }
 
     public Long getId() {
         return id;
@@ -55,38 +99,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    /*--------------------------*/
-
-
-    @ManyToOne
-    @JoinColumn(name = "inventario_ID")
-    private Cliente inventario;
-
-    public Cliente getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(Cliente inventario) {
-        this.inventario = inventario;
-    }
-
-    /*--------------------------*/
-
-
-
-    @OneToMany(mappedBy = "producto" , cascade = CascadeType.ALL)
-    private List<Provedor> provedor;
-
-    public List<Provedor> getProveedor() {
-        return provedor;
-    }
-
-    public void setProveedor(List<Provedor> proveedor) {
-        this.provedor = proveedor;
-    }
-
 }
-    /*--------------------------*/
 
 
 

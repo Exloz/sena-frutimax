@@ -1,6 +1,5 @@
 package com.sena.frutimax.modelo;
 
-
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,28 +12,25 @@ public class Inventario {
     private Long productoID;
     private Double cantidadDisponible;
 
+    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
+    private List<Producto> productos;
 
-    public java.lang.Double getCantidadDisponible() {
+    public Double getCantidadDisponible() {
         return cantidadDisponible;
     }
 
-    public void setCantidadDisponible(java.lang.Double cantidadDisponible) {
+    public void setCantidadDisponible(Double cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
 
-    public java.lang.Long getProductoID() {
+    public Long getProductoID() {
         return productoID;
     }
 
-    public void setProductoID(java.lang.Long productoID) {
+    public void setProductoID(Long productoID) {
         this.productoID = productoID;
     }
 
-
-
-    /*-----------------------------------------------*/
-    @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
-    private List<Producto> productos;
     public List<Producto> getProductos() {
         return productos;
     }

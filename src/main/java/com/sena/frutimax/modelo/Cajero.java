@@ -28,10 +28,6 @@ public class Cajero {
         this.id = id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public long getId() {
         return id;
     }

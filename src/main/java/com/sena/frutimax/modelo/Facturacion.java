@@ -18,18 +18,17 @@ public class Facturacion {
     private Date fecha;
     private String historialDePedidos;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "pedido_id")
-    private Facturacion facturaciones;
+    private Pedido pedido;
 
-    public Facturacion getFacturaciones() {
-        return facturaciones;
+    public Pedido getPedido() {
+        return pedido;
     }
 
-    public void setFacturaciones(Facturacion facturaciones) {
-        this.facturaciones = facturaciones;
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
-
 
     public java.lang.Long getFacturaID() {
         return facturaID;
