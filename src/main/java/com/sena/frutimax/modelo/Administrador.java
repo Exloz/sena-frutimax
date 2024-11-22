@@ -1,9 +1,6 @@
 package com.sena.frutimax.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Administrador {
@@ -14,6 +11,10 @@ public class Administrador {
     private String nombre;
     private String contacto;
     private String rolAdministrador;
+
+    @OneToOne(mappedBy = "administrador")
+    @JoinColumn
+    private Inventario inventario;
 
     public void setId(Long id) {
         this.id = id;
