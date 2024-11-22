@@ -15,6 +15,9 @@ public class Inventario {
     @OneToMany(mappedBy = "inventario", cascade = CascadeType.ALL)
     private List<Producto> productos;
 
+    @OneToOne(mappedBy = "inventario")
+    private Administrador administrador;
+
     public Double getCantidadDisponible() {
         return cantidadDisponible;
     }
