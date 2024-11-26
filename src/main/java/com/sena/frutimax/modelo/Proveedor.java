@@ -15,6 +15,9 @@ public class Proveedor {
     private Double total;
 
     @ManyToMany
+    @JoinTable(name = "producto_proveedor",
+            joinColumns = @JoinColumn(name = "producto_id"),
+            inverseJoinColumns = @JoinColumn(name = "proveedor_id"))
     private List<Producto> producto;
 
 
