@@ -22,9 +22,6 @@ public class Producto {
     private List<Pedido> pedido;
 
     @ManyToMany(mappedBy = "producto")
-    @JoinTable(name = "producto_proveedor",
-            joinColumns = @JoinColumn(name = "producto_id"),
-            inverseJoinColumns = @JoinColumn(name = "proveedor_id"))
     private List<Proveedor> proveedor;
 
     public List<Proveedor> getProveedor() {
