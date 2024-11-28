@@ -18,13 +18,21 @@ public class ProductoController {
     @PostMapping("/save")
     public ResponseEntity<Producto> createProducto(@RequestBody ProductoDTO productoDTO){
         var response = productoService.createProducto(productoDTO);
-        return new ResponseEntity<Producto>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<Producto> deleteProduct(@RequestBody ProductoDTO productoDTO){
-        var response = productoService.createProducto(productoDTO);
-        return new ResponseEntity<Producto>(response, HttpStatus.CREATED);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+        productoService.deleteProducto(id);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Producto> updateProducto(@PathVariable Long id, @RequestBody ProductoDTO productoDTO){
+        var response = productoService.updateProducto(id, productoDTO);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+
+    }
+
 }
