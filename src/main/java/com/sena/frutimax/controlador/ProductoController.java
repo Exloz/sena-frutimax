@@ -6,14 +6,24 @@ import com.sena.frutimax.servicio.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
+@Controller
 @RequestMapping("/productos")
 public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
+
+    @GetMapping
+    public ResponseEntity<List<Producto>> getAll(){
+        var response = productoService.getAllProductos();
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
 
     @PostMapping("/save")
     public ResponseEntity<Producto> createProducto(@RequestBody ProductoDTO productoDTO){
